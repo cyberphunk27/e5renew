@@ -11,12 +11,12 @@ on:
       - main
   schedule:
     - cron: "15 8-18 * * 1-5"
-  watch:
-    types: [started]
+  #watch:
+    #types: [started]
    
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: (github.event.repository.owner.id == github.event.sender.id) || ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}  # Self-ordered start
     #if: github.event.repository.owner.id == github.event.sender.id  # Self-ordered start
     name: Build and call API
@@ -29,8 +29,8 @@ jobs:
     - name: Set up Python #Install python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.8
-        #check-latest: true
+        python-version: 3.11
+        check-latest: true
     - name: Install requests #Installation requests
       run: |
         pip install requests
