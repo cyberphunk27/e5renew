@@ -10,7 +10,8 @@ on:
     branches: 
       - main
   schedule:
-    - cron: "15 8-18 * * 1-5"
+    #- cron: "15 8-18 * * 1-5"
+    - cron: "*/5 8-18 * * 1-5"
   #watch:
     #types: [started]
    
